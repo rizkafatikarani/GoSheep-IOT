@@ -2,18 +2,18 @@
 #include <PubSubClient.h>
 #include <DHT.h>
 
-const char *ssid = "";
+const char *ssid = "Ggggg";
 const char *password = "";
 const int CAGE_ID = 1;
 
-const char *mqtt_server = "";
+const char *mqtt_server = "10.50.57.207";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
 #define DHTPIN 4
 #define DHTTYPE DHT22
-#define READ_INTERVAL 2000UL
+#define READ_INTERVAL 15000UL
 
 DHT dht(DHTPIN, DHTTYPE);
 
