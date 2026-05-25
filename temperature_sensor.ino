@@ -2,10 +2,11 @@
 #include <PubSubClient.h>
 #include <DHT.h>
 
-const char *ssid = "Ggggg";
+const char *ssid = "";
 const char *password = "";
+const int CAGE_ID = 1;
 
-const char *mqtt_server = "10.207.213.207";
+const char *mqtt_server = "";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -118,8 +119,9 @@ void loop()
     payload += "\"suhu\":" + String(suhu) + ",";
     payload += "\"kelembapan\":" + String(kelembapan);
     payload += "}";
+    String topic = "cages/" + String(CAGE_ID) + "/environment";
 
-    client.publish("kandang/dht22", payload.c_str());
+    client.publish(topic.c_str(), payload.c_str());
 
     Serial.println(payload);
 
